@@ -1,32 +1,37 @@
 import React from "react";
 
-function IncomingMeetings() {
+function IncomingMeetings({ meetingDatas, timeFromDateString }) {
+  let todayMeetings = meetingDatas.filter(
+    (x) => new Date(x.startDate).toDateString() === new Date().toDateString()
+  );
+
+  let sortedData = todayMeetings
+    .sort((a, b) => new Date(a.startDate) - new Date(b.startDate))
+    .slice(0, 3);
+
+  console.log(sortedData);
+
+  function NextMeetings() {
+    return sortedData.map((x, index) => (
+      <div key={index}>
+        <span>
+          {timeFromDateString(x.startDate)} - {timeFromDateString(x.endDate)}
+        </span>
+        <span style={{ fontWeight: "bold" }}>{x.title}</span>
+        <span
+          style={{
+            textTransform: "uppercase",
+          }}
+        >
+          {x.organizer}
+        </span>
+      </div>
+    ));
+  }
+
   return (
     <div className="IncomingMeetings">
-      <table id="simple-board">
-        <tbody>
-          <tr className="table-row">
-            <td id="cell0-0">a</td>
-            <td id="cell0-1">b</td>
-            <td id="cell0-2">c</td>
-          </tr>
-          <tr className="table-row">
-            <td id="cell1-0">a</td>
-            <td id="cell1-1">b</td>
-            <td id="cell1-2">b</td>
-          </tr>
-          <tr className="table-row">
-            <td id="cell2-0">c</td>
-            <td id="cell2-1">c</td>
-            <td id="cell2-2">c</td>
-          </tr>
-          <tr className="table-row">
-            <td id="cell3-0">c</td>
-            <td id="cell3-1">c</td>
-            <td id="cell3-2">c</td>
-          </tr>
-        </tbody>
-      </table>
+      <NextMeetings />
     </div>
   );
 }
