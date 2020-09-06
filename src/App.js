@@ -15,21 +15,10 @@ function App() {
     };
   });
 
-  function getTimeFromDateString(date) {
-    let d = new Date(date);
-    return d.getHours() + ":" + d.getMinutes();
-  }
-
   return (
     <div className="container">
-      <CurrentMeeting
-        currentTimeFromDateString={getTimeFromDateString}
-        meetingDatas={meetingDatas}
-      ></CurrentMeeting>
-      <IncomingMeetings
-        timeFromDateString={getTimeFromDateString}
-        meetingDatas={meetingDatas}
-      ></IncomingMeetings>
+      <CurrentMeeting meetingDatas={meetingDatas}></CurrentMeeting>
+      <IncomingMeetings meetingDatas={meetingDatas}></IncomingMeetings>
       <Calendar schedulerData={meetingDatas}></Calendar>
     </div>
   );

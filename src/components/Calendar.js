@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import { ViewState } from "@devexpress/dx-react-scheduler";
 import {
@@ -6,62 +6,90 @@ import {
   DayView,
   Appointments,
   CurrentTimeIndicator,
+  AppointmentTooltip,
 } from "@devexpress/dx-react-scheduler-material-ui";
 import { makeStyles } from "@material-ui/core/styles";
 import classNames from "clsx";
 
-const currentDate = "2020-09-05";
+function Calendar({ schedulerData, ...props }) {
+  const [showDetail, enableDetail] = useState(false);
+  const currentDate = "2020-09-06";
 
-const useStyles = makeStyles((theme) => ({
-  nowIndicator: {
-    position: "absolute",
-    zIndex: 1,
-    left: 0,
-    top: ({ top }) => top,
-  },
-}));
+  const useStyles = makeStyles((theme) => ({
+    nowIndicator: {
+      position: "absolute",
+      zIndex: 1,
+      left: 0,
+      top: ({ top }) => top,
+    },
+  }));
 
-const TimeIndicator = ({ top, ...restProps }) => {
-  const classes = useStyles({ top });
-  return (
-    <div {...restProps}>
-      <div className={classNames(classes.nowIndicator, "circle")} />
-      <div className={classNames(classes.nowIndicator, "line")} />
+  const TimeIndicator = ({ top, ...restProps }) => {
+    const classes = useStyles({ top });
+    return (
+      <div {...restProps}>
+        <div className={classNames(classes.nowIndicator, "circle")} />
+        <div className={classNames(classes.nowIndicator, "line")} />
+      </div>
+    );
+  };
+
+  const Appointment = ({ children, style, ...restProps }) => (
+    <div>
+      <Appointments.Appointment
+        {...restProps}
+        onClick={() => enableDetail(true)}
+        style={{
+          ...style,
+          WebkitTextFillColor: "black",
+          borderLeftColor: "#FC0",
+          textTransform: "capitalize",
+          backgroundColor: "#FFF",
+          borderRadius: "1px",
+          borderLeftWidth: "0.5rem",
+          boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.75)",
+        }}
+      >
+        {children}
+      </Appointments.Appointment>
     </div>
   );
-};
 
-const Appointment = ({ children, style, ...restProps }) => (
-  <Appointments.Appointment
-    style={{
-      ...style,
-      WebkitTextFillColor: "black",
-      borderLeftColor: "#FC0",
-      textTransform: "capitalize",
-      backgroundColor: "#FFF",
-      borderRadius: "1px",
-      borderLeftWidth: "0.5rem",
-      boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.75)",
-    }}
-  >
-    {children}
-  </Appointments.Appointment>
-);
-
-function Calendar({ schedulerData }) {
-  return (
-    <Paper className="Paper">
-      <Scheduler data={schedulerData}>
-        <ViewState currentDate={currentDate} />
-        <DayView startDayHour={7} endDayHour={24} />
-        <Appointments appointmentComponent={Appointment} />
-        <CurrentTimeIndicator
-          indicatorComponent={TimeIndicator}
-          updateInterval={300}
-        />
-      </Scheduler>
-    </Paper>
+  const AppointmentContent = ({ children, style, ...restProps }) => (
+    <div>
+      <Appointments.AppointmentContent {...restProps}>
+        {children}
+      </Appointments.AppointmentContent>
+    </div>
   );
+
+  function Sidebar(props) {
+    const show = props.showDetail;
+    console.log(show);
+    if (show) {
+      return <div>asdadasdasfasfasf</div>;
+    } else {
+      return (
+        <Paper className="Paper">
+          <Scheduler data={schedulerData}>
+            <ViewState currentDate={currentDate} />
+            <DayView startDayHour={7} endDayHour={24} />
+            <Appointments
+              AppointmentContent={AppointmentContent}
+              appointmentComponent={Appointment}
+            />
+            <AppointmentTooltip />
+            <CurrentTimeIndicator
+              indicatorComponent={TimeIndicator}
+              updateInterval={300}
+            />
+          </Scheduler>
+        </Paper>
+      );
+    }
+  }
+
+  return <Sidebar showDetail={showDetail}></Sidebar>;
 }
 
 export default Calendar;
