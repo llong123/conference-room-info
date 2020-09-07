@@ -10,10 +10,11 @@ import {
 } from "@devexpress/dx-react-scheduler-material-ui";
 import { makeStyles } from "@material-ui/core/styles";
 import classNames from "clsx";
+import moment from "moment";
 
 function Calendar({ schedulerData, ...props }) {
   const [showDetail, enableDetail] = useState(false);
-  const currentDate = "2020-09-06";
+  const currentDate = moment();
 
   const useStyles = makeStyles((theme) => ({
     nowIndicator: {
