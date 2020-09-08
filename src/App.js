@@ -12,6 +12,7 @@ function App() {
       title: x.Subject,
       organizer: x.Organizer,
       participants: x.Participants,
+      description: x.Description,
     };
   });
 

@@ -11,10 +11,12 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import classNames from "clsx";
 import moment from "moment";
+import MeetingDetail from "./MeetingDetail";
 
 function Calendar({ schedulerData, ...props }) {
   const [showDetail, enableDetail] = useState(false);
   const currentDate = moment();
+  const [selectedMeeting, setSelected] = useState();
 
   const useStyles = makeStyles((theme) => ({
     nowIndicator: {
@@ -39,7 +41,10 @@ function Calendar({ schedulerData, ...props }) {
     <div>
       <Appointments.Appointment
         {...restProps}
-        onClick={() => enableDetail(true)}
+        onClick={(x) => {
+          setSelected(x.data);
+          enableDetail(true);
+        }}
         style={{
           ...style,
           WebkitTextFillColor: "black",
@@ -68,7 +73,12 @@ function Calendar({ schedulerData, ...props }) {
     const show = props.showDetail;
     console.log(show);
     if (show) {
-      return <div>asdadasdasfasfasf</div>;
+      return (
+        <MeetingDetail
+          selectedMeeting={selectedMeeting}
+          detailOff={enableDetail}
+        ></MeetingDetail>
+      );
     } else {
       return (
         <Paper className="Paper">
