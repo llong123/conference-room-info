@@ -293,7 +293,7 @@
     "Subject": "Jooses Design workshop",
     "Organizer": "Joose Rautemaa",
     "StartTime": "2020-09-11T09:30:00",
-    "EndTime": "2020-09-08T10:30:00",
+    "EndTime": "2020-09-11T10:30:00",
     "Participants": [
       {
         "Name": "Juho Röyhy",
@@ -392,8 +392,116 @@
   {
     "Subject": "Late Inspection",
     "Organizer": "Inspection ",
-    "StartTime": "2020-09-08T21:30:00",
-    "EndTime": "2020-09-08T22:30:00",
+    "StartTime": "2020-09-11T21:30:00",
+    "EndTime": "2020-09-11T22:30:00",
+    "Participants": null,
+    "Description": "Hello, everyone! This is the LONGEST TEXT EVER! I was inspired by the various other 'longest texts ever' on the internet"
+  },
+  {
+    "Subject": "Jooses Design workshop",
+    "Organizer": "Joose Rautemaa",
+    "StartTime": "2020-09-14T09:30:00",
+    "EndTime": "2020-09-14T10:30:00",
+    "Participants": [
+      {
+        "Name": "Juho Röyhy",
+        "Title": "Art Director"
+      },
+      {
+        "Name": "Petteri Lehtonen",
+        "Title": "UX Architect"
+      },
+      {
+        "Name": "Tero Tapanainen",
+        "Title": "CTO"
+      }
+    ]
+  },
+  {
+    "Subject": "Joose goes sickbr0",
+    "Organizer": "Joose Rautemaa",
+    "StartTime": "2020-09-14T10:30:00",
+    "EndTime": "2020-09-14T11:30:00",
+    "Participants": [
+      {
+        "Name": "Juho Röyhy",
+        "Title": "Art Director"
+      },
+      {
+        "Name": "Petteri Lehtonen",
+        "Title": "UX Architect"
+      },
+      {
+        "Name": "Tero Tapanainen",
+        "Title": "CTO"
+      }
+    ]
+  },
+  {
+    "Subject": "Nousiainen Inspection",
+    "Organizer": "Joose Rautemaa",
+    "StartTime": "2020-09-14T11:30:00",
+    "EndTime": "2020-09-14T13:30:00",
+    "Participants": null
+  },
+  {
+    "Subject": "Nousiainen Inspection",
+    "Organizer": "Joose Rautemaa",
+    "StartTime": "2020-09-14T13:30:00",
+    "EndTime": "2020-09-14T14:00:00",
+    "Participants": null
+  },
+  {
+    "Subject": "Nousiainen Inspection",
+    "Organizer": "Joose Rautemaa",
+    "StartTime": "2020-09-14T14:00:00",
+    "EndTime": "2020-09-14T14:30:00",
+    "Participants": null
+  },
+  {
+    "Subject": "Nousiainen Inspection",
+    "Organizer": "Joose Rautemaa",
+    "StartTime": "2020-09-14T14:30:00",
+    "EndTime": "2020-09-14T15:00:00",
+    "Participants": null
+  },
+  {
+    "Subject": "Late Inspection",
+    "Organizer": "Inspection ",
+    "StartTime": "2020-09-14T15:30:00",
+    "EndTime": "2020-09-14T17:30:00",
+    "Participants": null,
+    "Description": "Hello, everyone! This is the LONGEST TEXT EVER! I was inspired by the various other 'longest texts ever' on the internet"
+  },
+  {
+    "Subject": "Late Inspection",
+    "Organizer": "Inspection ",
+    "StartTime": "2020-09-14T18:30:00",
+    "EndTime": "2020-09-14T19:30:00",
+    "Participants": null,
+    "Description": "Hello, everyone! This is the LONGEST TEXT EVER! I was inspired by the various other 'longest texts ever' on the internet"
+  },
+  {
+    "Subject": "Late Inspection",
+    "Organizer": "Inspection ",
+    "StartTime": "2020-09-14T19:30:00",
+    "EndTime": "2020-09-14T20:30:00",
+    "Participants": null,
+    "Description": "Hello, everyone! This is the LONGEST TEXT EVER! I was inspired by the various other 'longest texts ever' on the internet"
+  },
+  {
+    "Subject": "Late Inspection",
+    "Organizer": "Inspection ",
+    "StartTime": "2020-09-14T20:30:00",
+    "EndTime": "2020-09-14T21:30:00",
+    "Participants": null,
+    "Description": "Hello, everyone! This is the LONGEST TEXT EVER! I was inspired by the various other 'longest texts ever' on the internet"
+  },
+  {
+    "Subject": "Late Inspection",
+    "Organizer": "Inspection ",
+    "StartTime": "2020-09-14T21:30:00",
+    "EndTime": "2020-09-14T22:30:00",
     "Participants": null,
     "Description": "Hello, everyone! This is the LONGEST TEXT EVER! I was inspired by the various other 'longest texts ever' on the internet"
   }
