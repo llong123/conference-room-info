@@ -6,26 +6,20 @@ function IncomingMeetings({ meetingDatas, timeFromDateString }) {
     (x) => new Date(x.startDate).toDateString() === new Date().toDateString()
   );
 
-  let sortedData = todayMeetings
+  let nextMeetingsData = todayMeetings
     .sort((a, b) => new Date(a.startDate) - new Date(b.startDate))
     .filter((x) => new Date(x.startDate) > new Date())
     .slice(0, 3);
 
   function NextMeetings() {
-    return sortedData.map((x, index) => (
+    return nextMeetingsData.map((x, index) => (
       <div key={index}>
         <span>
           {moment(x.startDate).format("HH:mm")} -{" "}
           {moment(x.endDate).format("HH:mm")}
         </span>
         <span style={{ fontWeight: "bold" }}>{x.title}</span>
-        <span
-          style={{
-            textTransform: "uppercase",
-          }}
-        >
-          {x.organizer}
-        </span>
+        <span className="incomingOrganizer">{x.Organizer}</span>
       </div>
     ));
   }

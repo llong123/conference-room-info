@@ -2,17 +2,15 @@ import React from "react";
 import "./App.css";
 import CurrentMeeting from "./components/CurrentMeeting";
 import IncomingMeetings from "./components/IncomingMeetings";
-import Calendar from "./components/Calendar";
+import Calendar from "./components/Sidebar";
 
 function App() {
   const meetingDatas = require("./data/meetings.json").map((x) => {
     return {
+      ...x,
       startDate: x.StartTime,
       endDate: x.EndTime,
       title: x.Subject,
-      organizer: x.Organizer,
-      participants: x.Participants,
-      description: x.Description,
     };
   });
 

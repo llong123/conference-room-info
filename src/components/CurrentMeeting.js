@@ -33,16 +33,14 @@ function TimeElapsed(currentMeeting) {
 }
 
 function CurrentMeeting({ meetingDatas }) {
-  let [current, updateCurrent] = React.useState(meetingDatas);
-  let [elapsed, updateElapsed] = React.useState(meetingDatas);
-
-  current = meetingDatas
-    .filter(
-      (x) => moment(x.startDate) <= moment() && moment(x.endDate) >= moment()
-    )
-    .shift();
-
-  elapsed = TimeElapsed(current);
+  let [current, updateCurrent] = React.useState(
+    meetingDatas
+      .filter(
+        (x) => moment(x.startDate) <= moment() && moment(x.endDate) >= moment()
+      )
+      .shift()
+  );
+  let [elapsed, updateElapsed] = React.useState(TimeElapsed(current));
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -56,7 +54,6 @@ function CurrentMeeting({ meetingDatas }) {
         return current;
       });
     }, 60000);
-
     return () => {
       clearInterval(timer);
     };
@@ -65,14 +62,13 @@ function CurrentMeeting({ meetingDatas }) {
   React.useEffect(() => {
     const timer = setInterval(() => {
       updateElapsed(() => {
-        return TimeElapsed(meetingDatas);
+        return TimeElapsed(current);
       });
     }, 60000);
-
     return () => {
       clearInterval(timer);
     };
-  }, [meetingDatas]);
+  }, [current]);
 
   function Current() {
     if (current) {
@@ -87,7 +83,7 @@ function CurrentMeeting({ meetingDatas }) {
             <BorderLinearProgress variant="determinate" value={elapsed} />
             <p>{moment(current.endDate).format("HH:mm")}</p>
           </div>
-          <p>{current.organizer}</p>
+          <p>{current.Organizer}</p>
         </div>
       );
     } else {

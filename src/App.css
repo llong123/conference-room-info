@@ -17,13 +17,21 @@
 }
 
 .IncomingMeetings > div {
+  padding-left: 2rem;
   display: grid;
   justify-content: center;
   align-content: center;
 }
 
-.Paper {
+.Sidebar {
   grid-area: calendar;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.Sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .MuiToolbar-root {
@@ -33,6 +41,7 @@
 .MuiAccordion-root.Mui-expanded {
   margin: 0 !important;
 }
+
 .MuiGridListTile-tile {
   display: flex !important;
   flex-direction: row !important;
@@ -41,13 +50,12 @@
 .DataBox {
   padding-left: 2rem;
   min-height: 9vh;
-  border-top: 1px solid #d1d1d1;
   display: flex;
   align-items: center;
   font-weight: bold;
 }
 
-.DataBox > p {
+.AccordionText {
   text-transform: uppercase;
   margin-left: 2rem;
 }
@@ -69,11 +77,26 @@
 .spacing {
   width: 1vw;
 }
+
 .elapsedTime {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.descriptionText {
+  text-transform: none;
+  font-weight: lighter;
+  padding: 1rem;
+  font-style: italic;
+  line-height: 1.5;
+  font-size: smaller;
+}
+
+.incomingOrganizer {
+  text-transform: uppercase;
+  font-weight: lighter;
 }
 
 @media only screen and (max-width: 768px) {
@@ -86,12 +109,13 @@
       "incoming";
   }
 
-  .Paper {
+  .Sidebar,
+  .incomingOrganizer {
     display: none;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   .container {
     display: grid;
     grid-template-columns: 70vw 30vw;
